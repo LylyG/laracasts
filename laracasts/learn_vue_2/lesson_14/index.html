@@ -17,14 +17,11 @@
 <body>
 	<div id="root" class="container">
 
-		<modal>
-			
-			<!--I can't remember why the template tag is beter than a div wrapper here..-->
-			<template slot="header">My Title</template>
+		<!-- v-on can describe interaction from parent to child component-->
+		<coupon @applied="onCouponApplied"></coupon>
 
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
 
-		</modal>
+		<h1 v-if="couponApplied">You used a coupon!</h1>
 	
 	</div>
 	

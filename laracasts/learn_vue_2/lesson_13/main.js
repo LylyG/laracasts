@@ -1,19 +1,48 @@
-//This shared event instance allows components to fire and listen for events. 
-window.Event = new Vue();
+//Slots for swapping out content. I can leave default content here as I did with the footer.
+//If I were to create a template tag for the footer slot in index.html it would override
+//my defaults in here. 
 
 
-Vue.component('coupon', {
 
-	template: `<input placeholder="Enter your coupon code" @blur="onCouponApplied">`,
+Vue.component('modal', {
 
-	methods: {
+	template: `
+		<div class="modal is-active">
+	  
+		  	<div class="modal-background"></div>
+		  
+		  	<div class="modal-card">
 
-		onCouponApplied() {
+		    	<header class="modal-card-head">
+		      		<p class="modal-card-title">
 
-			Event.$emit('applied');
+		      			<slot name="header">
 
-		}
-	}
+		      			</slot>
+
+		      		</p>
+
+
+		      		<button class="delete" aria-label="close"></button>
+		    	</header>
+
+			    <section class="modal-card-body">
+			      <slot>
+			      </slot>
+			    </section>
+
+
+			    <footer class="modal-card-foot">
+			    	<slot name="footer">
+			    		<button class="button is-success">Ok</button>
+			    	</slot>
+			    </footer>
+
+		  	</div>
+
+		</div>
+
+`,
 
 });
 
@@ -23,17 +52,6 @@ new Vue({
 
 	el: '#root',
 
-	data: {
-
-		couponApplied: false
-
-	},
-
-	created() {
-
-		Event.$on('applied', () => alert('Handling it!'));
-
-	}
 
 });
 
