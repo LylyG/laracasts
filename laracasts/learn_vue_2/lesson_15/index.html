@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html>
-<title>Component Communcation Ex#1 Custom Events</title>
+<title>Single-Use Components and Inline Templates</title>
 <head>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">	
@@ -17,11 +17,11 @@
 <body>
 	<div id="root" class="container">
 
-		<!-- v-on can describe interaction from parent to child component-->
-		<coupon @applied="onCouponApplied"></coupon>
+		<progress-view>
 
+			<h1>Your progress through this course is {{ completionRate }}</h1>
 
-		<h1 v-if="couponApplied">You used a coupon!</h1>
+		</progress-view>
 	
 	</div>
 	
