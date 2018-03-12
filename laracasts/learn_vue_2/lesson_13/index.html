@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html>
+<title>Component Communcation Ex#1 Custom Events</title>
+<head>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">	
+
+<style>
+
+	body { padding: 40px; }
+
+</style>
+
+
+</head>
+<body>
+	<div id="root" class="container">
+
+		<!-- v-on can describe interaction from parent to child component-->
+		<coupon @applied="onCouponApplied"></coupon>
+
+
+		<h1 v-if="couponApplied">You used a coupon!</h1>
+	
+	</div>
+	
+
+<script src="https://unpkg.com/vue@2.1.3/dist/vue.js"></script>
+<script src="main.js"></script>
+
+
+</body>
+</html>
